@@ -29,8 +29,36 @@ function SumForm() {
   <p> Sum is {sum} </p>
   </form>;
 }
+function RestForm() {
+  const [res, setRest] = useState(0);
+  const [num, setNum] = useState(0);
+  const [num1, setNum1] = useState(0);
+
+  function handleChange(e) {
+    setRest(e.target.value);
+   
+  }
+  function handleChange1(e) {
+    setNum1(e.target.value);
+  }
+
+  function handleSubmit(e) {
+    setRest(Number(num) + Number(num1));
+    e.preventDefault();
+    console.log(e)
+  }
+
+  return <form onSubmit={handleSubmit}>
+  <input type="number" value={num} onChange={handleChange} /><strong>-</strong>
+  <input type="number" value1={num1} onChange={handleChange1} />
+  <input type="submit" value="Add" />
+  <p> Sum is {res} </p>
+  </form>;
+}
 console.log(useState)
-const el = <SumForm />; 
+const sumf = <SumForm />; 
+const resf = <RestForm />; 
 const container = document.getElementById('root');
 const root = createRoot(container);
-root.render(el);
+root.render(sumf);
+root.render(resf);
