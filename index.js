@@ -55,10 +55,22 @@ function RestForm() {
   <p> Sum is {res} </p>
   </form>;
 }
-console.log(useState)
+function Contador() {
+  let [contState, setCont] = useState(0);
+  return(
+    <React.Fragment>
+      <span>{contState}</span>
+    <button onClick={()=>setCont(contState + 1)}>Aumentar en 1</button>
+    <button onClick={()=>setCont(contState - 1)}>Decrementar en 1</button>
+    </React.Fragment>
+  )
+}
+//console.log(useState)
 const sumf = <SumForm />; 
 const resf = <RestForm />; 
+const contador = <Contador />;
 const container = document.getElementById('root');
 const root = createRoot(container);
 root.render(sumf);
 root.render(resf);
+root.render(contador);
